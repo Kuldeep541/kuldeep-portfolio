@@ -8,42 +8,78 @@ const Projects = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   const projects = [
-    {
-      title: "TAB Unscripted",
-      description: "Modern content management platform for creative collaboration and distribution.",
-      tech: ["React", "Node.js", "MongoDB", "Tailwind"],
-      link: "https://tabunscripted.in"
-    },
-    {
-      title: "HPBSMDA Portal",
-      description: "Government administration portal serving Himachal Pradesh with seamless workflows.",
-      tech: ["PHP", "CodeIgniter", "MySQL"],
-      link: "https://bsmda.hp.gov.in"
-    },
-    {
-      title: "HP Drug Licensing",
-      description: "Licensing management system for pharmaceutical compliance and tracking.",
-      tech: ["PHP", "JavaScript", "SQL"],
-      link: "https://dcla.hp.gov.in"
-    },
-    {
-      title: "TAB Library",
-      description: "Educational resource management system with catalog and lending features.",
-      tech: ["PHP", "CodeIgniter", "MySQL"],
-      link: "https://tablibrary.in"
-    },
-    {
-      title: "TAB Educational Institute",
-      description: "Complete learning management system for course delivery and student tracking.",
-      tech: ["PHP", "MySQL", "JavaScript"],
-      link: "https://theabei.in"
-    },
-    {
-      title: "Dr. Bhatia Surgical Center",
-      description: "Medical center website with appointment booking and patient management.",
-      tech: ["PHP", "MySQL", "JavaScript"],
-      link: "https://drbhatiasent.com"
-    }
+   {
+     title: "Tanmay Mukherjee Drum Circle",
+     description: "Music artist portfolio with modern web technologies and optimal performance.",
+     tech: ["React", "Vercel", "JavaScript"],
+     link: "https://tanmaydrumcircle.in/"
+   },
+   {
+     title: "Dr. Bhatia Surgical Center",
+     description: "Medical center website with appointment booking and patient management.",
+     tech: ["PHP", "MySQL", "JavaScript"],
+     link: "https://drbhatiaent.com"
+   },
+   {
+     title: "Dr. Bhatia Cancer Center",
+     description: "Specialized cancer treatment center website with patient consultation and appointment management.",
+     tech: ["PHP", "CodeIgniter", "MySQL"],
+     link: "https://drbhatiacancer.com"
+   },
+   {
+     title: "HPBSMDA Portal",
+     description: "Government administration portal serving Himachal Pradesh with seamless workflows.",
+     tech: ["PHP", "CodeIgniter", "MySQL"],
+     link: "https://bsmda.hp.gov.in"
+   },
+   {
+     title: "HP Drug Licensing",
+     description: "Licensing management system for pharmaceutical compliance and tracking.",
+     tech: ["PHP", "JavaScript", "SQL"],
+     link: "https://dcla.hp.gov.in"
+   },
+   {
+     title: "TAB Unscripted",
+     description: "Modern content management platform for creative collaboration and distribution.",
+     tech: ["React", "Node.js", "MongoDB", "Tailwind"],
+     link: "https://tabunscripted.in"
+   },
+   {
+     title: "TAB Library",
+     description: "Educational resource management system with catalog and lending features.",
+     tech: ["PHP", "CodeIgniter", "MySQL"],
+     link: "https://tablibrary.in"
+   },
+   {
+     title: "TAB Educational Institute",
+     description: "Complete learning management system for course delivery and student tracking.",
+     tech: ["PHP", "MySQL", "JavaScript"],
+     link: "https://theabei.in"
+   },
+   {
+     title: "Checkin Portal",
+     description: "Employee check-in and attendance management system with real-time tracking.",
+     tech: ["PHP", "Core PHP", "MySQL"],
+     link: "https://checkin.theartistbarefoot.com"
+   },
+   {
+     title: "The Artist Barefoot",
+     description: "Creative agency website with portfolio showcase, project galleries, and client management.",
+     tech: ["React", "MySQL", "JavaScript"],
+     link: "https://theartistbarefoot.com"
+   },
+   {
+     title: "Urblinx Integrated Services",
+     description: "Integrated Facility Management and Real Estate Advisory platform for smart building services.",
+     tech: ["CodeIgniter", "PHP", "EmailJs"],
+     link: "https://urblinx.com"
+   },
+   {
+     title: "Quiz Management System",
+     description: "Desktop application for creating, managing, and conducting educational quizzes.",
+     tech: ["Java", "Swing", "SQLite"],
+     link: "https://github.com"
+   }
   ];
 
   return (
