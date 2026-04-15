@@ -1,239 +1,249 @@
-import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { 
-  Code, 
-  Database, 
-  Server, 
-  Globe, 
-  Smartphone, 
-  Palette,
-  Terminal,
-  GitBranch,
-  Cloud,
-  Layers,
-  Cpu,
-  Monitor
+import {
+  Code2, Database, Server, Globe, Palette, Terminal,
+  GitBranch, Cloud, Layers, Cpu, Monitor, Smartphone,
 } from 'lucide-react';
+
+const categories = [
+  {
+    title: 'Frontend',
+    color: '#60a5fa',
+    glow: 'rgba(96,165,250,0.15)',
+    skills: [
+      { name: 'React.js', level: 90, icon: Code2 },
+      { name: 'TypeScript', level: 75, icon: Code2 },
+      { name: 'JavaScript', level: 92, icon: Code2 },
+      { name: 'Tailwind CSS', level: 88, icon: Palette },
+      { name: 'HTML5 / CSS3', level: 95, icon: Globe },
+      { name: 'Next.js', level: 80, icon: Monitor },
+    ],
+  },
+  {
+    title: 'Backend',
+    color: '#34d399',
+    glow: 'rgba(52,211,153,0.15)',
+    skills: [
+      { name: 'Node.js', level: 85, icon: Server },
+      { name: 'PHP', level: 88, icon: Code2 },
+      { name: 'CodeIgniter', level: 80, icon: Layers },
+      { name: 'RESTful APIs', level: 87, icon: Globe },
+    ],
+  },
+  {
+    title: 'Database & DevOps',
+    color: '#c084fc',
+    glow: 'rgba(192,132,252,0.15)',
+    skills: [
+      { name: 'MySQL', level: 85, icon: Database },
+      { name: 'MongoDB', level: 78, icon: Database },
+      { name: 'Git / GitHub', level: 90, icon: GitBranch },
+      { name: 'Linux', level: 72, icon: Terminal },
+      { name: 'AWS Basics', level: 58, icon: Cloud },
+    ],
+  },
+  {
+    title: 'Other',
+    color: '#fb923c',
+    glow: 'rgba(251,146,60,0.15)',
+    skills: [
+      { name: 'Java', level: 70, icon: Cpu },
+      { name: 'Swing', level: 62, icon: Smartphone },
+      { name: 'Shopify / Liquid', level: 72, icon: Layers },
+      { name: 'Docker', level: 55, icon: Layers },
+    ],
+  },
+];
+
+const SkillBar = ({
+  name, level, icon: Icon, color, delay,
+}: {
+  name: string; level: number; icon: React.ElementType; color: string; delay: number;
+}) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: '-60px' });
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, x: -12 }}
+      animate={isInView ? { opacity: 1, x: 0 } : {}}
+      transition={{ duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] }}
+      className="group"
+    >
+      <div className="flex items-center justify-between mb-2">
+        <div className="flex items-center gap-2.5">
+          <Icon size={14} style={{ color }} className="opacity-70 group-hover:opacity-100 transition-opacity" />
+          <span className="text-sm font-medium text-white/65 group-hover:text-white/85 transition-colors">
+            {name}
+          </span>
+        </div>
+        <span className="text-xs font-semibold" style={{ color, opacity: 0.7 }}>
+          {level}%
+        </span>
+      </div>
+      <div className="h-1.5 rounded-full overflow-hidden" style={{ background: 'rgba(255,255,255,0.06)' }}>
+        <motion.div
+          initial={{ width: 0 }}
+          animate={isInView ? { width: `${level}%` } : {}}
+          transition={{ duration: 1.2, delay: delay + 0.2, ease: [0.22, 1, 0.36, 1] }}
+          className="h-full rounded-full relative overflow-hidden"
+          style={{ background: `linear-gradient(90deg, ${color}90, ${color})` }}
+        >
+          <motion.div
+            className="absolute inset-0"
+            style={{ background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent)' }}
+            animate={{ x: ['-100%', '200%'] }}
+            transition={{ duration: 2.5, repeat: Infinity, ease: 'linear', delay: delay + 1 }}
+          />
+        </motion.div>
+      </div>
+    </motion.div>
+  );
+};
 
 const TechnicalSkills = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, { once: true, margin: '-80px' });
 
-  const skillCategories = [
-    {
-      title: "Frontend Development",
-      icon: Monitor,
-      color: "text-blue-400",
-      bgColor: "bg-blue-500/10",
-      borderColor: "border-blue-500/20",
-      skills: [
-        { name: "React.js", level: 90, icon: Code },
-        { name: "TypeScript", level: 75, icon: Code },
-        { name: "JavaScript", level: 90, icon: Code },
-        { name: "Tailwind CSS", level: 85, icon: Palette },
-        { name: "HTML5/CSS3", level: 95, icon: Globe }
-      ]
-    },
-    {
-      title: "Backend Development",
-      icon: Server,
-      color: "text-green-400",
-      bgColor: "bg-green-500/10",
-      borderColor: "border-green-500/20",
-      skills: [
-        { name: "Node.js", level: 85, icon: Server },
-        { name: "PHP", level: 88, icon: Code },
-        { name: "CodeIgniter", level: 80, icon: Layers },
-        { name: "RESTful APIs", level: 85, icon: Globe }
-      ]
-    },
-    {
-      title: "Database & Tools",
-      icon: Database,
-      color: "text-purple-400",
-      bgColor: "bg-purple-500/10",
-      borderColor: "border-purple-500/20",
-      skills: [
-        { name: "MySQL", level: 85, icon: Database },
-        { name: "MongoDB", level: 80, icon: Database },
-        { name: "Git", level: 88, icon: GitBranch },
-        { name: "Linux", level: 75, icon: Terminal }
-      ]
-    },
-    {
-      title: "Other Technologies",
-      icon: Cpu,
-      color: "text-orange-400",
-      bgColor: "bg-orange-500/10",
-      borderColor: "border-orange-500/20",
-      skills: [
-        { name: "Java", level: 70, icon: Code },
-        { name: "Swing", level: 65, icon: Smartphone },
-        { name: "AWS Basics", level: 60, icon: Cloud },
-        { name: "Docker", level: 55, icon: Layers }
-      ]
-    }
-  ];
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
+  const stagger = {
+    hidden: {},
+    show: { transition: { staggerChildren: 0.12 } },
   };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6 }
-    }
+  const fadeUp = {
+    hidden: { opacity: 0, y: 24 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } },
   };
 
   return (
-    <section id="skills" className="py-20 bg-card/30" ref={ref}>
-      <div className="container mx-auto px-6">
+    <section id="skills" ref={ref} className="relative bg-[#080808] py-32 px-6 sm:px-8 overflow-hidden">
+      <div className="absolute inset-0 dot-bg opacity-20 pointer-events-none" />
+      <div
+        className="absolute top-0 inset-x-0 h-px"
+        style={{ background: 'linear-gradient(90deg, transparent, rgba(198,255,52,0.15), transparent)' }}
+      />
+
+      <div className="relative z-10 w-full max-w-7xl mx-auto">
+        {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 24 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          className="mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 font-sora">
-            Technical <span className="text-primary">Skills</span>
+          <p className="section-label mb-4">Expertise</p>
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black leading-[1.05] tracking-[-0.025em] text-white">
+            Technical{' '}
+            <span
+              style={{
+                background: 'linear-gradient(135deg, #C6FF34, #f0ff8a)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+              }}
+            >
+              Skills
+            </span>
           </h2>
-          <div className="w-24 h-1 bg-hero-gradient mx-auto rounded-full mb-4" />
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-inter">
-            A comprehensive overview of my technical expertise across different domains of software development.
-          </p>
+          <div className="w-16 h-0.5 bg-[#C6FF34] mt-6 rounded-full" />
         </motion.div>
 
+        {/* Category grid */}
         <motion.div
-          variants={containerVariants}
+          variants={stagger}
           initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto"
+          animate={isInView ? 'show' : 'hidden'}
+          className="grid grid-cols-1 md:grid-cols-2 gap-6"
         >
-          {skillCategories.map((category, categoryIndex) => (
+          {categories.map((cat, ci) => (
             <motion.div
-              key={category.title}
-              variants={itemVariants}
-              className={`${category.bgColor} ${category.borderColor} border backdrop-blur-sm rounded-2xl p-6 hover:scale-105 transition-all duration-300 group`}
+              key={cat.title}
+              variants={fadeUp}
+              whileHover={{ y: -4 }}
+              className="rounded-2xl p-6 transition-all duration-400 group"
+              style={{
+                background: 'rgba(255,255,255,0.025)',
+                border: '1px solid rgba(255,255,255,0.06)',
+                transition: 'all 0.35s cubic-bezier(0.22,1,0.36,1)',
+              }}
+              onMouseEnter={(e) => {
+                (e.currentTarget as HTMLDivElement).style.borderColor = `${cat.color}30`;
+                (e.currentTarget as HTMLDivElement).style.boxShadow = `0 20px 60px rgba(0,0,0,0.3), 0 0 40px ${cat.glow}`;
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(255,255,255,0.06)';
+                (e.currentTarget as HTMLDivElement).style.boxShadow = 'none';
+              }}
             >
-              {/* Category Header */}
+              {/* Category header */}
               <div className="flex items-center gap-3 mb-6">
-                <div className={`p-3 ${category.bgColor} rounded-lg border ${category.borderColor}`}>
-                  <category.icon size={24} className={category.color} />
-                </div>
-                <h3 className="text-xl font-bold text-foreground font-poppins">
-                  {category.title}
-                </h3>
+                <div
+                  className="w-2 h-8 rounded-full"
+                  style={{ background: cat.color }}
+                />
+                <h3 className="text-base font-bold text-white/80">{cat.title}</h3>
+                <span
+                  className="ml-auto text-xs font-semibold px-2 py-0.5 rounded-md"
+                  style={{ background: `${cat.color}15`, color: cat.color, border: `1px solid ${cat.color}30` }}
+                >
+                  {cat.skills.length} skills
+                </span>
               </div>
 
-              {/* Skills List */}
+              {/* Skill bars */}
               <div className="space-y-4">
-                {category.skills.map((skill, skillIndex) => (
-                  <motion.div
+                {cat.skills.map((skill, si) => (
+                  <SkillBar
                     key={skill.name}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={isInView ? { opacity: 1, x: 0 } : {}}
-                    transition={{ 
-                      duration: 0.6, 
-                      delay: categoryIndex * 0.2 + skillIndex * 0.1 
-                    }}
-                    className="group/skill"
-                  >
-                    {/* Skill Header */}
-                    <div className="flex items-center justify-between mb-2">
-                      <div className="flex items-center gap-2">
-                        <skill.icon size={16} className={`${category.color} transition-all duration-300 group-hover/skill:scale-110`} />
-                        <span className="text-foreground font-medium font-inter">
-                          {skill.name}
-                        </span>
-                      </div>
-                      <span className="text-muted-foreground text-sm font-medium">
-                        {skill.level}%
-                      </span>
-                    </div>
-
-                    {/* Progress Bar */}
-                    <div className="w-full bg-muted/50 rounded-full h-2 overflow-hidden">
-                      <motion.div
-                        initial={{ width: 0 }}
-                        animate={isInView ? { width: `${skill.level}%` } : {}}
-                        transition={{ 
-                          duration: 1.5, 
-                          delay: categoryIndex * 0.2 + skillIndex * 0.1 + 0.5,
-                          ease: "easeOut"
-                        }}
-                        className="h-2 bg-gradient-to-r from-primary via-secondary to-accent rounded-full relative overflow-hidden"
-                      >
-                        <motion.div
-                          className="absolute inset-0 bg-white/20"
-                          animate={{ x: [-100, 100] }}
-                          transition={{
-                            duration: 2,
-                            repeat: Infinity,
-                            ease: "linear"
-                          }}
-                        />
-                      </motion.div>
-                    </div>
-                  </motion.div>
+                    name={skill.name}
+                    level={skill.level}
+                    icon={skill.icon}
+                    color={cat.color}
+                    delay={ci * 0.1 + si * 0.07}
+                  />
                 ))}
-              </div>
-
-              {/* Decorative Element */}
-              <div className="mt-6 flex justify-end">
-                <div className={`w-16 h-1 ${category.bgColor} rounded-full`} />
               </div>
             </motion.div>
           ))}
         </motion.div>
 
-        {/* Stats Section */}
+        {/* Bottom stat strip */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 32 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 1.2, duration: 0.8 }}
-          className="mt-16"
+          transition={{ delay: 0.8, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-px rounded-2xl overflow-hidden"
+          style={{ border: '1px solid rgba(255,255,255,0.05)', background: 'rgba(255,255,255,0.02)' }}
         >
-          <div className="grid md:grid-cols-4 gap-6 max-w-4xl mx-auto">
-            {[
-              { number: "20+", label: "Technologies", icon: Code },
-              { number: "20+", label: "Projects", icon: Layers },
-              { number: "1+", label: "Year Experience", icon: Calendar },
-              { number: "100%", label: "Dedication", icon: Heart }
-            ].map((stat, index) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ delay: 1.4 + index * 0.1, duration: 0.6 }}
-                className="text-center p-6 bg-card/50 border border-border rounded-xl hover:bg-card/70 transition-all duration-300 group"
+          {[
+            { v: '20+', l: 'Technologies' },
+            { v: '14+', l: 'Projects Built' },
+            { v: '2+', l: 'Years Experience' },
+            { v: '100%', l: 'Dedication' },
+          ].map((s) => (
+            <motion.div
+              key={s.l}
+              whileHover={{ background: 'rgba(198,255,52,0.04)' }}
+              className="flex flex-col items-center justify-center py-6 gap-1 transition-all duration-300"
+            >
+              <span
+                className="text-3xl font-black"
+                style={{
+                  background: 'linear-gradient(135deg, #C6FF34, #f0ff8a)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                }}
               >
-                <stat.icon size={32} className="text-primary mx-auto mb-3 group-hover:scale-110 transition-transform duration-300" />
-                <div className="text-3xl font-bold text-foreground mb-1 font-sora">
-                  {stat.number}
-                </div>
-                <div className="text-muted-foreground text-sm font-inter">
-                  {stat.label}
-                </div>
-              </motion.div>
-            ))}
-          </div>
+                {s.v}
+              </span>
+              <span className="text-xs text-white/30 font-medium">{s.l}</span>
+            </motion.div>
+          ))}
         </motion.div>
       </div>
     </section>
   );
 };
-
-// Missing imports for the stats section
-import { Calendar, Heart } from 'lucide-react';
 
 export default TechnicalSkills;
