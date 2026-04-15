@@ -113,7 +113,7 @@ const Navbar = () => {
           {/* Resume CTA */}
           <div className="hidden md:flex items-center gap-3">
             <motion.a
-              href="https://drive.google.com/file/d/1s9ppoRMGFS2qJUvyI8cuviyBoxE3H8tn/view?usp=drivesdk"
+              href="https://drive.google.com/file/d/1gWzEsSc_PFIgk9NrysGeDZqCHQyTUKeh/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               initial={{ opacity: 0, scale: 0.9 }}
@@ -178,7 +178,7 @@ const Navbar = () => {
               ))}
               <div className="pt-2 pb-1">
                 <motion.a
-                  href="https://drive.google.com/file/d/1s9ppoRMGFS2qJUvyI8cuviyBoxE3H8tn/view?usp=drivesdk"
+                  href="https://drive.google.com/file/d/1gWzEsSc_PFIgk9NrysGeDZqCHQyTUKeh/view?usp=sharing"
                   target="_blank"
                   rel="noopener noreferrer"
                   initial={{ opacity: 0 }}

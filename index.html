@@ -1,66 +1,181 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 
 <head>
-    <!-- Basic Meta Tags -->
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kuldeep Prajapati - Full Stack Developer | React, Node.js, PHP & MySQL</title>
-    <meta name="description" content="Kuldeep Prajapati - Full Stack Developer specializing in React, Node.js, PHP, and MySQL. Building scalable, real-world applications with clean, efficient code." />
-    <meta name="keywords" content="Kuldeep Prajapati, Full Stack Developer, React Developer, Node.js Developer, PHP Developer, MySQL, Web Development, Software Engineer, Portfolio" />
-    <meta name="author" content="Kuldeep Prajapati" />
-    <link rel="canonical" href="https://kuldeepprajapati.netlify.app/" />
+  <!-- ========== Core Meta ========== -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Kuldeep Prajapati | Full Stack Developer — React, Next.js, Node.js, PHP</title>
+  <meta name="description" content="Kuldeep Prajapati is a Full Stack Developer from Lucknow, India specializing in React, Next.js, Node.js, PHP, and MySQL. Building scalable SaaS products, ecommerce stores, government portals, and web apps with 14+ live projects and 5M+ users served." />
+  <meta name="keywords" content="Kuldeep Prajapati, Full Stack Developer, React Developer, Next.js Developer, Node.js Developer, PHP Developer, MySQL, MongoDB, TypeScript, JavaScript, Web Developer Lucknow, Shopify Developer, SaaS Developer, Portfolio, Hire Developer India" />
+  <meta name="author" content="Kuldeep Prajapati" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="theme-color" content="#080808" />
+  <meta name="color-scheme" content="dark" />
+  <link rel="canonical" href="https://kuldeepprajapati.netlify.app/" />
 
-    <!-- Favicon -->
-    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-    <meta name="google-site-verification" content="T3nafKU5zySNJ4YTQQWu70cGTHAk93BAL-STWjQxV50" />
+  <!-- ========== Favicon ========== -->
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico" />
+  <meta name="google-site-verification" content="T3nafKU5zySNJ4YTQQWu70cGTHAk93BAL-STWjQxV50" />
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- ========== Google Fonts ========== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
-    <!-- Open Graph (Facebook, LinkedIn, etc.) -->
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Kuldeep Prajapati - Full Stack Developer" />
-    <meta property="og:description" content="Full Stack Developer specializing in React, Node.js, PHP & MySQL. Explore my portfolio and projects." />
-    <meta property="og:url" content="https://kuldeepprajapati.netlify.app/" />
-    <meta property="og:image" content="https://kuldeepprajapati.netlify.app/preview.jpg" />
-    <meta property="og:site_name" content="Kuldeep Prajapati Portfolio" />
+  <!-- ========== Open Graph ========== -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_IN" />
+  <meta property="og:site_name" content="Kuldeep Prajapati Portfolio" />
+  <meta property="og:title" content="Kuldeep Prajapati | Full Stack Developer — React · Next.js · Node.js" />
+  <meta property="og:description" content="Full Stack Developer building scalable SaaS products, ecommerce stores & government portals. 14+ live projects · 5M+ users · Available for hire." />
+  <meta property="og:url" content="https://kuldeepprajapati.netlify.app/" />
+  <meta property="og:image" content="https://kuldeepprajapati.netlify.app/preview.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
 
-    <!-- Twitter Cards -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Kuldeep Prajapati - Full Stack Developer" />
-    <meta name="twitter:description" content="Full Stack Developer specializing in React, Node.js, PHP & MySQL. View my portfolio." />
-    <meta name="twitter:image" content="https://kuldeepprajapati.netlify.app/preview.jpg" />
+  <!-- ========== Twitter / X Card ========== -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@KuldeepDev" />
+  <meta name="twitter:creator" content="@KuldeepDev" />
+  <meta name="twitter:title" content="Kuldeep Prajapati | Full Stack Developer" />
+  <meta name="twitter:description" content="Building scalable web applications with React, Next.js & Node.js. 14+ projects, 5M+ users." />
+  <meta name="twitter:image" content="https://kuldeepprajapati.netlify.app/preview.jpg" />
 
-    <!-- Schema Markup (JSON-LD for Personal Portfolio) -->
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org/",
-            "@type": "Person",
-            "name": "Kuldeep Prajapati",
-            "url": "https://kuldeepprajapati.netlify.app/",
-            "image": "https://kuldeepprajapati.netlify.app/profile.jpg",
-            "sameAs": [
-                "https://github.com/YOUR_GITHUB",
-                "https://linkedin.com/in/YOUR_LINKEDIN",
-                "https://twitter.com/YOUR_TWITTER"
-            ],
-            "jobTitle": "Full Stack Developer",
-            "worksFor": {
-                "@type": "Organization",
-                "name": "Freelance"
-            },
-            "knowsAbout": ["React", "Node.js", "PHP", "MySQL", "Web Development", "JavaScript", "TypeScript"]
+  <!-- ========== Schema.org — Person ========== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": "https://kuldeepprajapati.netlify.app/#person",
+    "name": "Kuldeep Prajapati",
+    "givenName": "Kuldeep",
+    "familyName": "Prajapati",
+    "url": "https://kuldeepprajapati.netlify.app/",
+    "image": "https://kuldeepprajapati.netlify.app/profile.jpg",
+    "jobTitle": "Full Stack Developer",
+    "description": "Full Stack Developer specializing in React, Next.js, Node.js, PHP, and MySQL. Building scalable SaaS platforms, ecommerce stores, and government portals.",
+    "email": "kuldeeppprajapati2111@gmail.com",
+    "telephone": "+917380892966",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Lucknow",
+      "addressRegion": "Uttar Pradesh",
+      "addressCountry": "IN"
+    },
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "Bansal Institute of Engineering & Technology",
+      "sameAs": "https://www.biet.ac.in/"
+    },
+    "worksFor": {
+      "@type": "Organization",
+      "name": "The Artist Barefoot Pvt. Ltd.",
+      "url": "https://theartistbarefoot.com"
+    },
+    "sameAs": [
+      "https://github.com/kuldeep541",
+      "https://linkedin.com/in/kuldeep-prajapati-aa9276178"
+    ],
+    "knowsAbout": [
+      "React.js", "Next.js", "Node.js", "TypeScript", "JavaScript",
+      "PHP", "CodeIgniter", "MySQL", "MongoDB", "Tailwind CSS",
+      "Shopify", "Full Stack Development", "REST API", "Git"
+    ],
+    "hasOccupation": {
+      "@type": "Occupation",
+      "name": "Full Stack Developer",
+      "occupationLocation": {
+        "@type": "City",
+        "name": "Lucknow"
+      },
+      "skills": "React, Next.js, Node.js, PHP, MySQL, MongoDB, TypeScript"
+    }
+  }
+  </script>
+
+  <!-- ========== Schema.org — WebSite ========== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://kuldeepprajapati.netlify.app/#website",
+    "name": "Kuldeep Prajapati Portfolio",
+    "url": "https://kuldeepprajapati.netlify.app/",
+    "description": "Portfolio of Kuldeep Prajapati — Full Stack Developer building React, Next.js, and Node.js applications.",
+    "author": {
+      "@id": "https://kuldeepprajapati.netlify.app/#person"
+    },
+    "inLanguage": "en-IN",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://kuldeepprajapati.netlify.app/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
+  <!-- ========== Schema.org — ItemList (Projects) ========== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Kuldeep Prajapati — Featured Projects",
+    "description": "Portfolio of web development projects by Kuldeep Prajapati including SaaS platforms, ecommerce, and government portals.",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@type": "SoftwareApplication",
+          "name": "Toolively — 100+ Free Online Tools",
+          "url": "https://toolively.com/",
+          "applicationCategory": "WebApplication",
+          "description": "SaaS platform with 100+ free online calculators, converters and generators. 5M+ monthly users.",
+          "operatingSystem": "Web Browser"
         }
-    </script>
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "item": {
+          "@type": "WebSite",
+          "name": "Nawaabiyat — Premium Shopify Ecommerce",
+          "url": "https://www.nawaabiyat.com/",
+          "description": "Premium Shopify ecommerce store for authentic royal cuisine products."
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@type": "GovernmentService",
+          "name": "HPBSMDA Government Portal",
+          "url": "https://bsmda.hp.gov.in",
+          "description": "Official government portal for Himachal Pradesh BSMDA."
+        }
+      }
+    ]
+  }
+  </script>
 
+  <!-- ========== Schema.org — BreadcrumbList ========== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://kuldeepprajapati.netlify.app/" }
+    ]
+  }
+  </script>
 </head>
 
 <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
 </body>
 
 </html>
