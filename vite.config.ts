@@ -17,4 +17,10 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  build: {
+    // Use esbuild (cross-platform JS) instead of lightningcss (platform-specific
+    // native binary) so Netlify/Linux builds work regardless of where the
+    // package-lock.json was generated.
+    cssMinify: 'esbuild',
+  },
 }));
