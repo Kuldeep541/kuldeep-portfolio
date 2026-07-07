@@ -217,8 +217,8 @@ const TechnicalSkills = () => {
         >
           {[
             { v: '20+', l: 'Technologies' },
-            { v: '14+', l: 'Projects Built' },
-            { v: '2+', l: 'Years Experience' },
+            { v: '25+', l: 'Projects Built' },
+            { v: '1.5+', l: 'Years Experience' },
             { v: '100%', l: 'Dedication' },
           ].map((s) => (
             <motion.div
