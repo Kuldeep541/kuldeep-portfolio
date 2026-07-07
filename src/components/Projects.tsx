@@ -143,12 +143,15 @@ const SpotlightCard = ({ project, index }: { project: typeof projects[0]; index:
   const [hovered, setHovered] = useState(false);
   const Icon = project.icon;
 
+<<<<<<< HEAD
   // Must be at top level — not inside conditional JSX (Rules of Hooks)
   const spotlightBg = useTransform(
     [mx, my],
     ([x, y]) => `radial-gradient(300px circle at ${x}px ${y}px, rgba(198,255,52,0.07), transparent 70%)`
   );
 
+=======
+>>>>>>> f14767e3f4c4ebb533f21467725f1bc1ea7d8deb
   const handleMouseMove = (e: React.MouseEvent) => {
     const r = cardRef.current!.getBoundingClientRect();
     mx.set(e.clientX - r.left);
@@ -178,6 +181,7 @@ const SpotlightCard = ({ project, index }: { project: typeof projects[0]; index:
       }}
       aria-label={`${project.title} — ${project.tagline}`}
     >
+<<<<<<< HEAD
       {/* Spotlight gradient that follows mouse — always rendered, toggled via opacity */}
       <motion.div
         className="absolute inset-0 pointer-events-none rounded-2xl"
@@ -187,6 +191,20 @@ const SpotlightCard = ({ project, index }: { project: typeof projects[0]; index:
           transition: 'opacity 0.3s',
         }}
       />
+=======
+      {/* Spotlight gradient that follows mouse */}
+      {hovered && (
+        <motion.div
+          className="absolute inset-0 pointer-events-none rounded-2xl"
+          style={{
+            background: useTransform(
+              [mx, my],
+              ([x, y]) => `radial-gradient(300px circle at ${x}px ${y}px, rgba(198,255,52,0.07), transparent 70%)`
+            ),
+          }}
+        />
+      )}
+>>>>>>> f14767e3f4c4ebb533f21467725f1bc1ea7d8deb
 
       {/* Featured banner */}
       {project.featured && (
